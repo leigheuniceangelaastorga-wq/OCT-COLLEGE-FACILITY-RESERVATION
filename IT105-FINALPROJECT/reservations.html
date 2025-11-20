@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Approved Reservations</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <img src="/mnt/data/058BF1FA-4DCE-49A4-A009-2ED8EDE27255.jpeg" alt="OCT Logo" class="logo">
+    <h1 class="title">Approved Reservations</h1>
+  </header>
+
+  <a class="back-btn" href="index.html">Back to Student</a>
+  <a class="view-btn" href="admin-login.html">Admin</a>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th><th>ID</th><th>Facility</th><th>Date</th><th>Time</th><th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody id="reservationTable"></tbody>
+  </table>
+
+  <p id="noResults" class="muted">No approved reservations yet.</p>
+
+  <script src="reservations.js"></script>
+</body>
+</html>
