@@ -3,49 +3,55 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Admin Login - Reservations</title>
+  <title>Reserve Facility - Olivarez College Tagaytay</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="header">
-    <img src="/mnt/data/058BF1FA-4DCE-49A4-A009-2ED8EDE27255.jpeg" alt="OCT Logo" class="logo">
-    <h1 class="title">Admin Login</h1>
-  </header>
+ <header class="header">
+    <img src="oct-logo.png" alt="OCT Logo" class="logo">
+    <h1 class="title">Olivarez College Tagaytay</h1>
+</header>
 
-  <a class="back-btn" href="index.html">Back to Student</a>
+  <a class="view-btn" href="reservations.html">View Approved Reservations</a>
+  <a class="view-btn" href="admin-login.html">Admin</a>
 
-  <div style="max-width:420px;margin:30px auto;">
-    <div class="card">
-      <h2 style="font-family:'Merriweather',serif;">Sign in</h2>
-      <form id="loginForm">
-        <label for="adminUser">Username</label>
-        <input id="adminUser" required>
+  <div class="grid" id="facilityGrid"></div>
 
-        <label for="adminPass">Password</label>
-        <input id="adminPass" type="password" required>
+  <!-- Modal -->
+  <div class="modal" id="reservationModal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true">
+      <h2>Reserve Facility</h2>
+      <form id="reservationForm">
+        <label for="name">Full name</label>
+        <input id="name" required>
 
-        <button type="submit" class="submit-btn">Login</button>
-        <p id="loginMsg" class="muted"></p>
+        <label for="studentId">ID Number</label>
+        <input id="studentId" required>
+
+        <label for="facility">Facility</label>
+        <input id="facility" readonly required>
+
+        <label for="date">Date</label>
+        <input id="date" type="date" required>
+
+        <label for="time">Time</label>
+        <input id="time" type="time" required>
+
+        <label for="purpose">Purpose</label>
+        <textarea id="purpose" rows="3" required></textarea>
+
+        <button type="submit" class="submit-btn">Submit Reservation</button>
+        <button type="button" class="cancel-btn" id="cancelModal">Cancel</button>
+        <p id="formMessage" class="muted"></p>
       </form>
     </div>
   </div>
 
-  <script>
-    const ADMIN_USER = 'admin';
-    const ADMIN_PASS = 'admin123';
+  <footer class="site-footer">
+    <img class="logo" src="/mnt/data/91F2C1E7-2C10-4CEE-913F-C967DC8C8389.jpeg" alt="Campus">
+    <p class="muted">Facilities: Gym · Computer Laboratory (Comlab) · Bar Laboratory (Barlab) · Education Laboratory (Educ Lab) · Open Court · Library · Amphitheater · Convention Center · Criminology Laboratory (Crimlab)</p>
+  </footer>
 
-    document.getElementById('loginForm').addEventListener('submit', e => {
-      e.preventDefault();
-      const u = document.getElementById('adminUser').value.trim();
-      const p = document.getElementById('adminPass').value;
-      const msg = document.getElementById('loginMsg');
-      if (u === ADMIN_USER && p === ADMIN_PASS) {
-        localStorage.setItem('isAdmin', 'true');
-        window.location.href = 'admin.html';
-      } else {
-        msg.textContent = 'Invalid credentials';
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
