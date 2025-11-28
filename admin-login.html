@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Login - Reservations</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+<img src="oct-logo.png" alt="OCT Logo" class="logo">
+    <h1 class="title">Admin Login</h1>
+  </header>
+
+  <a class="back-btn" href="index.html">Back to Student</a>
+
+  <div style="max-width:420px;margin:30px auto;">
+    <div class="card">
+      <h2 style="font-family:'Merriweather',serif;">Sign in</h2>
+      <form id="loginForm">
+        <label for="adminUser">Username</label>
+        <input id="adminUser" required>
+
+        <label for="adminPass">Password</label>
+        <input id="adminPass" type="password" required>
+
+        <button type="submit" class="submit-btn">Login</button>
+        <p id="loginMsg" class="muted"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const ADMIN_USER = 'admin';
+    const ADMIN_PASS = 'admin123';
+
+    document.getElementById('loginForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const u = document.getElementById('adminUser').value.trim();
+      const p = document.getElementById('adminPass').value;
+      const msg = document.getElementById('loginMsg');
+      if (u === ADMIN_USER && p === ADMIN_PASS) {
+        localStorage.setItem('isAdmin', 'true');
+        window.location.href = 'admin.html';
+      } else {
+        msg.textContent = 'Invalid credentials';
+      }
+    });
+  </script>
+</body>
+</html>

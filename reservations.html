@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Approved Reservations</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+<img src="oct-logo.png" alt="OCT Logo" class="logo">
+    <h1 class="title">Approved Reservations</h1>
+  </header>
+
+  <a class="back-btn" href="index.html">Back to Student</a>
+  <a class="view-btn" href="admin-login.html">Admin</a>
+
+  <div style="max-width:1100px;margin:12px auto;padding:0 16px;">
+    <div style="text-align:center;margin-bottom:12px;">
+      <input id="searchInput" placeholder="Search by name, facility or date (YYYY-MM-DD)" style="padding:8px;width:60%;max-width:500px;border-radius:8px;border:1px solid #ddd;">
+      <select id="facilityFilter" style="padding:8px;border-radius:8px;margin-left:8px;">
+        <option value="all">All Facilities</option>
+      </select>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th><th>ID</th><th>Facility</th><th>Date</th><th>Time</th><th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody id="reservationTable"></tbody>
+    </table>
+
+    <p id="noResults" class="muted">No approved reservations yet.</p>
+  </div>
+
+  <script src="reservations.js"></script>
+</body>
+</html>

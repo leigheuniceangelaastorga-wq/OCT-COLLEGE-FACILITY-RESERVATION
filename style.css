@@ -1,0 +1,282 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap');
+
+/* ============================
+   GLOBAL STYLES
+============================ */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f5f9f4;
+  margin: 0;
+  padding: 0;
+  color: #2b3d2d;
+}
+
+:root {
+  --oct-green: #2e7d32;
+  --oct-lightgreen: #66bb6a;
+  --oct-gold: #f4c542;
+  --oct-red: #d32f2f;
+  --oct-gray: #e8f0e5;
+  --shadow: 0 4px 10px rgba(0,0,0,0.12);
+  --radius: 12px;
+}
+
+/* ============================
+   HEADER
+============================ */
+
+.header {
+  background: var(--oct-green);
+  padding: 22px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.header .logo {
+  max-height: 60px;
+  margin-right: 15px;
+}
+
+.header .title {
+  font-family: 'Merriweather', serif;
+  font-size: 34px;
+  letter-spacing: 1px;
+}
+
+/* Buttons */
+
+.view-btn,
+.back-btn {
+  background: var(--oct-lightgreen);
+  color: white;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  margin: 20px;
+  display: inline-block;
+  transition: 0.25s ease;
+}
+
+.view-btn:hover,
+.back-btn:hover {
+  background: var(--oct-green);
+  transform: translateY(-3px);
+}
+
+/* ============================
+   FACILITY GRID
+============================ */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 35px;
+}
+
+.card {
+  background: white;
+  padding: 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-left: 7px solid var(--oct-lightgreen);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  background: #e8f7ea;
+  border-left-color: var(--oct-green);
+}
+
+/* ============================
+   TABLE (Reservations)
+============================ */
+
+table {
+  width: 92%;
+  margin: 35px auto;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+th {
+  background: var(--oct-green);
+  color: white;
+  padding: 14px;
+  font-size: 18px;
+  font-family: 'Merriweather', serif;
+}
+
+td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #d7e6d4;
+}
+
+tr:hover {
+  background: #edf7ef;
+}
+
+/* ============================
+   MODAL
+============================ */
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  margin: 6% auto;
+  width: 380px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-top: 10px solid var(--oct-green);
+}
+
+label {
+  font-weight: 700;
+  display: block;
+  margin-top: 12px;
+  color: var(--oct-green);
+  font-family: 'Merriweather', serif;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  border: 2px solid var(--oct-gray);
+  border-radius: 8px;
+  background: #fafdf9;
+  transition: 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--oct-lightgreen);
+  outline: none;
+  background: #ffffff;
+}
+
+/* ============================
+   BUTTONS IN MODAL
+============================ */
+
+.submit-btn {
+  background: var(--oct-green);
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.submit-btn:hover {
+  background: var(--oct-lightgreen);
+}
+
+.cancel-btn {
+  background: var(--oct-red);
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: var(--radius);
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.cancel-btn:hover {
+  background: #b71c1c;
+}
+.site-footer .logo {
+    width: 50px;   /* adjust size here */
+    height: auto;  /* keeps correct proportion */
+    margin-right: 10px; /* optional spacing */
+}
+
+
+/* ============================
+   ADMIN PANEL STYLING
+============================ */
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: white;
+}
+
+.badge-pending { background: var(--oct-gold); color: #333; }
+.badge-approved { background: var(--oct-green); }
+.badge-rejected { background: var(--oct-red); }
+
+.action-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 8px;
+  transition: 0.2s;
+}
+
+.action-approve { background: var(--oct-green); color: white; }
+.action-reject { background: var(--oct-red); color: white; }
+.action-revert { background: var(--oct-lightgreen); color: white; }
+
+.action-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ============================
+   CENTER BUTTONS (NEW)
+============================ */
+
+.center-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* ============================
+   RESPONSIVE ADJUSTMENTS
+============================ */
+
+@media (max-width: 560px) {
+  .modal-content { width: 90%; }
+  .grid { padding: 18px; gap: 15px; }
+  table { width: 98%; }
+  .header .title { font-size: 26px; }
+}

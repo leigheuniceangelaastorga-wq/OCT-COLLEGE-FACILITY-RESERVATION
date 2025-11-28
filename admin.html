@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Dashboard - Reservations</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+<img src="oct-logo.png" alt="OCT Logo" class="logo">
+    <h1 class="title">Reservation Dashboard</h1>
+  </header>
+
+  <a class="back-btn" href="index.html">Student Page</a>
+  <a class="view-btn" href="reservations.html">Public Approved</a>
+
+  <div style="max-width:1100px;margin:22px auto;padding:0 16px;">
+    <div class="card">
+      <h2 style="font-family:'Merriweather',serif;">Manage Reservations</h2>
+
+      <p>Filter:
+        <select id="filterStatus">
+          <option value="all">All</option>
+          <option value="Pending">Pending</option>
+          <option value="Approved">Approved</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+      </p>
+
+      <table id="adminTable">
+        <thead>
+          <tr>
+            <th>Name</th><th>ID</th><th>Facility</th><th>Date</th><th>Time</th><th>Purpose</th><th>Status</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="adminTbody"></tbody>
+      </table>
+
+      <p id="noAdminResults" class="muted">No reservations.</p>
+
+      <div style="margin-top:12px;">
+        <button id="logoutBtn" class="cancel-btn">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
