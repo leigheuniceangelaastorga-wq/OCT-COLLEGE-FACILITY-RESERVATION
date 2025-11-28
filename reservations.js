@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // reservations.js - shows only Approved reservations and supports search + filter
 function loadReservations() { return JSON.parse(localStorage.getItem('reservations')) || []; }
 const table = document.getElementById('reservationTable');
@@ -69,3 +70,29 @@ function applyFilters() {
 
 if (searchInput) searchInput.addEventListener('input', applyFilters);
 if (facilityFilter) facilityFilter.addEventListener('change', applyFilters);
+=======
+// reservations.js
+function loadReservations() { return JSON.parse(localStorage.getItem('reservations')) || []; }
+const table = document.getElementById('reservationTable');
+const noResults = document.getElementById('noResults');
+
+function escape(s){ return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
+
+function renderApproved() {
+  const all = loadReservations();
+  const approved = all.filter(r => r.status === 'Approved');
+  table.innerHTML = '';
+  if (!approved.length) {
+    noResults.style.display = 'block';
+    return;
+  }
+  noResults.style.display = 'none';
+  approved.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${escape(r.name)}</td><td>${escape(r.studentId)}</td><td>${escape(r.facility)}</td><td>${escape(r.date)}</td><td>${escape(r.time)}</td><td>${escape(r.purpose)}</td>`;
+    table.appendChild(tr);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', renderApproved);
+>>>>>>> a899e3a2a4f7ba4db9dd61cb7c735a0f884a22c1
